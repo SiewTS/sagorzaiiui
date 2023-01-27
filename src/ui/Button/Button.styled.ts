@@ -1,10 +1,10 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 interface ButtonCSSProps {
-    buttonType: "primary" | "success" | "danger" | "warning"
-    size?: "sm" | "md" | "bg"
-    border?: "curvy" | "rounded"
-    isDisabled?: boolean
+    buttonType: "primary" | "success" | "danger" | "warning";
+    size?: "sm" | "md" | "bg";
+    border?: "curvy" | "rounded";
+    isDisabled?: boolean;
 }
 
 export const ButtonWrapper = styled.button<ButtonCSSProps>`
@@ -47,10 +47,11 @@ export const ButtonWrapper = styled.button<ButtonCSSProps>`
     &:hover {
         color: #fff;
         background-color: #1e3a8a;
-        background-color: ${props => props.buttonType === "danger" && "#DC2626"};
+        background-color: ${props =>
+            props.buttonType === "danger" && "#DC2626"};
         background-color: ${props =>
             props.buttonType === "warning" && "#FCD34D"};
         background-color: ${props =>
             props.buttonType === "success" && "#059669"};
     }
-`
+`;
