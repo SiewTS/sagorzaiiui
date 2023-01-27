@@ -3,7 +3,8 @@ import styled from "styled-components"
 interface ButtonCSSProps {
     buttonType: "primary" | "success" | "danger" | "warning"
     size?: "sm" | "md" | "bg"
-    isDisabled: boolean
+    border?: "curvy" | "rounded"
+    isDisabled?: boolean
 }
 
 export const ButtonWrapper = styled.button<ButtonCSSProps>`
@@ -40,6 +41,8 @@ export const ButtonWrapper = styled.button<ButtonCSSProps>`
     opacity: ${props => props.isDisabled === true && "0.5"};
     cursor: ${props => props.isDisabled === true && "not-allowed"};
     pointer-events: ${props => props.isDisabled === true && "none"};
+
+    border-radius: ${props => props.border === "rounded" && "50px"};
 
     &:hover {
         color: #fff;
