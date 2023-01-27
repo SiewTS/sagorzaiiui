@@ -1,22 +1,23 @@
 import React from "react";
+import Title from "../Title/Title";
 import { ButtonWrapper } from "./Button.styled";
 
 export interface ButtonProps {
     label: string;
-    type: "primary" | "success" | "danger" | "warning";
+    type?: "primary" | "success" | "danger" | "warning";
     size?: "sm" | "md" | "bg";
-    border?: "curvy" | "rounded";
+    border?: "squared" | "curved" | "rounded";
     icon?: any;
-    isDisabled: boolean;
+    isDisabled?: boolean;
     onClick?: () => void;
 }
 
 const Button = (props: ButtonProps) => {
     const {
         label,
-        type,
+        type = "primary",
         size = "sm",
-        border = "curvy",
+        border = "curved",
         icon,
         isDisabled = false,
     } = props;
@@ -29,7 +30,7 @@ const Button = (props: ButtonProps) => {
             aria-disabled={isDisabled}
             border={border}
         >
-            {label.toUpperCase()}
+            <Title label={label} type="button" />
         </ButtonWrapper>
     );
 };
