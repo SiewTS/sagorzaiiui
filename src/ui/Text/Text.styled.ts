@@ -7,6 +7,7 @@ interface TextCSSProps {
     textDecoration?: "strike" | "underline";
     isBold?: boolean;
     isItalic?: boolean;
+    isDisabled?: boolean;
 }
 
 export const Paragraph = styled.p<TextCSSProps>`
@@ -64,7 +65,7 @@ export const CodeText = styled.code`
     padding: 0 3px;
 `;
 
-export const Link = styled.a`
+export const Link = styled.a<TextCSSProps>`
     color: ${globalCSSVariables.secondaryColor};
     font-family: ${globalCSSVariables.primaryFf};
 
@@ -72,4 +73,8 @@ export const Link = styled.a`
         cursor: pointer;
         text-decoration: underline;
     }
+    /* disabled */
+    opacity: ${props => props.isDisabled === true && "0.5"};
+    cursor: ${props => props.isDisabled === true && "not-allowed"};
+    pointer-events: ${props => props.isDisabled === true && "none"};
 `;

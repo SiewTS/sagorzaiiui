@@ -11,6 +11,7 @@ export interface TextProps {
     isBold?: boolean;
     isItalic?: boolean;
     linkURL: never;
+    isDisabled?: never;
 }
 
 interface TextPropsWithURL {
@@ -22,6 +23,7 @@ interface TextPropsWithURL {
     isBold?: boolean;
     isItalic?: boolean;
     linkURL: string;
+    isDisabled?: boolean;
 }
 
 const Text = (props: TextProps | TextPropsWithURL) => {
@@ -34,6 +36,7 @@ const Text = (props: TextProps | TextPropsWithURL) => {
         isBold = false,
         isItalic = false,
         linkURL,
+        isDisabled = false,
     } = props;
 
     const textFinder = () => {
@@ -44,7 +47,11 @@ const Text = (props: TextProps | TextPropsWithURL) => {
             return <CodeText>{content}</CodeText>;
         }
         if (category === "link") {
-            return <Link href={linkURL}>{content}</Link>;
+            return (
+                <Link isDisabled={isDisabled} href={linkURL}>
+                    {content}
+                </Link>
+            );
         } else {
             return (
                 <Paragraph
