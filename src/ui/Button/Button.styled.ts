@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { globalCSSVariables } from "../../styles/variables";
 
 interface ButtonCSSProps {
     buttonType: "primary" | "success" | "danger" | "warning";
@@ -12,33 +13,42 @@ export const ButtonWrapper = styled.button<ButtonCSSProps>`
     width: 100%;
     max-width: 150px;
     height: 38px;
-    background-color: #f8fafc;
-    border: 1px solid #1e3a8a;
+    background-color: ${globalCSSVariables.bgColor};
+    border: 1px solid ${globalCSSVariables.primaryColor};
     border-radius: 5px;
     padding: 10px 30px;
     margin: 10px;
-    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 2px 2px ${globalCSSVariables.shadowColor};
     transition: ease-in-out 150ms;
     cursor: pointer;
 
     & > header {
         max-width: 80%;
         text-align: center;
-        text-shadow: 0.8px 0.5px rgba(0, 0, 0, 0.25);
-        font-weight: bold;
-        font-size: 12px;
-        color: #1e3a8a;
+        text-shadow: 0.8px 0.5px ${globalCSSVariables.shadowColor};
+        font-weight: ${globalCSSVariables.boldFw};
+        font-size: ${globalCSSVariables.buttonFs};
+        color: ${globalCSSVariables.primaryColor};
 
         /* color */
-        color: ${props => props.buttonType === "danger" && "#DC2626"};
-        color: ${props => props.buttonType === "warning" && "#FCD34D"};
-        color: ${props => props.buttonType === "success" && "#059669"};
+        color: ${props =>
+            props.buttonType === "danger" &&
+            globalCSSVariables.errorColor};
+        color: ${props =>
+            props.buttonType === "warning" &&
+            globalCSSVariables.warningColor};
+        color: ${props =>
+            props.buttonType === "success" &&
+            globalCSSVariables.successColor};
     }
 
     /* border color */
-    border-color: ${props => props.buttonType === "danger" && "#DC2626"};
-    border-color: ${props => props.buttonType === "warning" && "#FCD34D"};
-    border-color: ${props => props.buttonType === "success" && "#059669"};
+    border-color: ${props =>
+        props.buttonType === "danger" && globalCSSVariables.errorColor};
+    border-color: ${props =>
+        props.buttonType === "warning" && globalCSSVariables.warningColor};
+    border-color: ${props =>
+        props.buttonType === "success" && globalCSSVariables.successColor};
 
     /* size */
     max-width: ${props => props.size === "md" && "350px"};
@@ -54,16 +64,19 @@ export const ButtonWrapper = styled.button<ButtonCSSProps>`
     border-radius: ${props => props.border === "squared" && "unset"};
 
     &:hover header {
-        color: #fff;
+        color: ${globalCSSVariables.white};
     }
 
     &:hover {
-        background-color: #1e3a8a;
+        background-color: ${globalCSSVariables.primaryColor};
         background-color: ${props =>
-            props.buttonType === "danger" && "#DC2626"};
+            props.buttonType === "danger" &&
+            globalCSSVariables.errorColor};
         background-color: ${props =>
-            props.buttonType === "warning" && "#FCD34D"};
+            props.buttonType === "warning" &&
+            globalCSSVariables.warningColor};
         background-color: ${props =>
-            props.buttonType === "success" && "#059669"};
+            props.buttonType === "success" &&
+            globalCSSVariables.successColor};
     }
 `;
