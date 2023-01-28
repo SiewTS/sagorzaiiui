@@ -20,4 +20,8 @@ export const globalCSSVariables = {
     hThreeFs: "21px",
     buttonFs: "12px",
     bodyFs: "16px",
+    boldFw: "900",
+    semiBoldFw: "700",
+    mediumFw: "600",
+    lightFw: "300",
 };
