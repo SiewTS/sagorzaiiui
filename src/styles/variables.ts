@@ -13,4 +13,11 @@ export const globalCSSVariables = {
     primaryFf: '"Monserrat", sans-serif',
     secondaryFf: '"Poppins", sans-serif',
     codeFf: '"Courier New", Courier, monospace',
+    titleFs: "67px",
+    subTitleFs: "51px",
+    hOneFs: "38px",
+    hTwoFs: "28px",
+    hThreeFs: "21px",
+    buttonFs: "12px",
+    bodyFs: "16px",
 };
