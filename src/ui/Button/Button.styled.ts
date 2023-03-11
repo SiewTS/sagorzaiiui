@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { globalCSSVariables } from "../../styles/variables";
+const style = getComputedStyle(document.body);
 
 interface ButtonCSSProps {
     buttonType: "primary" | "success" | "danger" | "warning";
@@ -13,42 +13,45 @@ export const ButtonWrapper = styled.button<ButtonCSSProps>`
     width: 100%;
     max-width: 150px;
     height: 38px;
-    background-color: ${globalCSSVariables.bgColor};
-    border: 1px solid ${globalCSSVariables.primaryColor};
+    background-color: var(--by-color);
+    border: 1px solid var(--primary-color);
     border-radius: 5px;
     padding: 10px 30px;
     margin: 10px;
-    box-shadow: 1px 2px 2px ${globalCSSVariables.shadowColor};
+    box-shadow: 1px 2px 2px var(--shadow-color);
     transition: ease-in-out 150ms;
     cursor: pointer;
 
     & > header {
         max-width: 80%;
         text-align: center;
-        text-shadow: 0.8px 0.5px ${globalCSSVariables.shadowColor};
-        font-weight: ${globalCSSVariables.boldFw};
-        font-size: ${globalCSSVariables.buttonFs};
-        color: ${globalCSSVariables.primaryColor};
+        text-shadow: 0.8px 0.5px var(--shadow-color);
+        font-weight: var(--bold-fw);
+        font-size: var(--button-fs);
+        color: var(--primary-color);
 
         /* color */
         color: ${props =>
             props.buttonType === "danger" &&
-            globalCSSVariables.errorColor};
+            style.getPropertyValue("--error-color")};
         color: ${props =>
             props.buttonType === "warning" &&
-            globalCSSVariables.warningColor};
+            style.getPropertyValue("--warning-color")};
         color: ${props =>
             props.buttonType === "success" &&
-            globalCSSVariables.successColor};
+            style.getPropertyValue("--success-color")};
     }
 
     /* border color */
     border-color: ${props =>
-        props.buttonType === "danger" && globalCSSVariables.errorColor};
+        props.buttonType === "danger" &&
+        style.getPropertyValue("--error-color")};
     border-color: ${props =>
-        props.buttonType === "warning" && globalCSSVariables.warningColor};
+        props.buttonType === "warning" &&
+        style.getPropertyValue("--warning-color")};
     border-color: ${props =>
-        props.buttonType === "success" && globalCSSVariables.successColor};
+        props.buttonType === "success" &&
+        style.getPropertyValue("--success-color")};
 
     /* size */
     max-width: ${props => props.size === "md" && "350px"};
@@ -64,19 +67,19 @@ export const ButtonWrapper = styled.button<ButtonCSSProps>`
     border-radius: ${props => props.border === "squared" && "unset"};
 
     &:hover header {
-        color: ${globalCSSVariables.white};
+        color: var(--white);
     }
 
     &:hover {
-        background-color: ${globalCSSVariables.primaryColor};
+        background-color: var(--primary-color);
         background-color: ${props =>
             props.buttonType === "danger" &&
-            globalCSSVariables.errorColor};
+            style.getPropertyValue("--error-color")};
         background-color: ${props =>
             props.buttonType === "warning" &&
-            globalCSSVariables.warningColor};
+            style.getPropertyValue("--warning-color")};
         background-color: ${props =>
             props.buttonType === "success" &&
-            globalCSSVariables.successColor};
+            style.getPropertyValue("--success-color")};
     }
 `;
