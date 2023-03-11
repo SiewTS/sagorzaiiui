@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { globalCSSVariables } from "../../styles/variables";
 
 interface MenuItemCSSProps {
     isDisabled: boolean | undefined;
@@ -11,7 +10,7 @@ export const MenuWrapper = styled.div`
     height: 100vh;
     margin: 0;
     padding: 5px;
-    background-color: ${globalCSSVariables.bgColor};
+    background-color: var(--bg-color);
 `;
 
 export const MenuContainer = styled.ul`
@@ -28,7 +27,7 @@ export const MenuItem = styled.li<MenuItemCSSProps>`
     & > a {
         display: block;
         text-decoration: none;
-        color: ${globalCSSVariables.black};
+        color: var(--black);
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -36,13 +35,13 @@ export const MenuItem = styled.li<MenuItemCSSProps>`
 
     &:hover {
         cursor: pointer;
-        background-color: ${globalCSSVariables.primaryColor};
-        color: ${globalCSSVariables.white};
+        background-color: var(--primary-color);
+        color: var(--white);
     }
 
     &:hover > a {
         text-decoration: none;
-        color: ${globalCSSVariables.white};
+        color: var(--white);
     }
 
     /* disabled */

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { globalCSSVariables } from "../../styles/variables";
 
 interface TitleCSSProps {
     align: "left" | "center" | "right";
@@ -11,47 +10,47 @@ export const Wrapper = styled.header<TitleCSSProps>`
     margin: auto;
     padding: 0 5px;
     text-align: left;
-    color: ${globalCSSVariables.black};
+    color: var(--black);
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    font-family: ${globalCSSVariables.primaryFf};
+    font-family: var(--primary-ff);
 
     text-align: ${props => props.align === "center" && "center"};
     text-align: ${props => props.align === "right" && "right"};
 `;
 
 export const MainTitle = styled(Wrapper)`
-    font-family: ${globalCSSVariables.secondaryFf};
-    font-weight: ${globalCSSVariables.boldFw};
-    font-size: ${globalCSSVariables.titleFs};
+    font-family: var(--secondary-ff);
+    font-weight: var(--bold-fw);
+    font-size: var(--title-fs);
     text-transform: uppercase;
 `;
 
 export const SubTitle = styled(Wrapper)`
-    font-family: ${globalCSSVariables.secondaryFf};
-    font-weight: ${globalCSSVariables.semiBoldFw};
-    font-size: ${globalCSSVariables.subTitleFs};
+    font-family: var(--secondary-ff);
+    font-weight: var(--semi-bold-fw);
+    font-size: var(--subtitle-fs);
     text-transform: uppercase;
 `;
 
 export const HOne = styled(Wrapper)`
-    font-weight: ${globalCSSVariables.boldFw};
-    font-size: ${globalCSSVariables.hOneFs};
+    font-weight: var(--bold-fw);
+    font-size: var(--hOne-fs);
 `;
 
 export const HTwo = styled(Wrapper)`
-    font-weight: ${globalCSSVariables.semiBoldFw};
-    font-size: ${globalCSSVariables.hTwoFs};
+    font-weight: var(--semi-bold-fw);
+    font-size: var(--hTwo-fs);
 `;
 
 export const HThree = styled(Wrapper)`
-    font-weight: ${globalCSSVariables.mediumFw};
-    font-size: ${globalCSSVariables.hThreeFs};
+    font-weight: var(--medium-fw);
+    font-size: var(--hThree-fs);
 `;
 
 export const ButtonTitle = styled(Wrapper)`
-    font-weight: ${globalCSSVariables.boldFw};
-    font-size: ${globalCSSVariables.buttonFs};
+    font-weight: var(--bold-fw);
+    font-size: var(--button-fs);
     text-transform: uppercase;
 `;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { globalCSSVariables } from "../../styles/variables";
+const style = getComputedStyle(document.body);
 
 interface TextCSSProps {
     type?: "primary" | "secondary" | "success" | "warning" | "error";
@@ -13,24 +13,28 @@ interface TextCSSProps {
 export const Paragraph = styled.p<TextCSSProps>`
     width: fit-content;
     text-align: left;
-    font-family: ${globalCSSVariables.primaryFf};
-    font-size: ${globalCSSVariables.bodyFs};
-    font-weight: ${globalCSSVariables.lightFw};
-    color: ${globalCSSVariables.black};
+    font-family: var(--primary-ff);
+    font-size: var(--body-fs);
+    font-weight: var(--light-fw);
+    color: var(--black);
 
     /* color */
     color: ${props =>
-        props.type === "secondary" && globalCSSVariables.secondaryColor};
+        props.type === "secondary" &&
+        style.getPropertyValue("--secondary-color")};
     color: ${props =>
-        props.type === "success" && globalCSSVariables.successColor};
+        props.type === "success" &&
+        style.getPropertyValue("--success-color")};
     color: ${props =>
-        props.type === "warning" && globalCSSVariables.warningColor};
+        props.type === "warning" &&
+        style.getPropertyValue("--warning-color")};
     color: ${props =>
-        props.type === "error" && globalCSSVariables.errorColor};
+        props.type === "error" && style.getPropertyValue("--error-color")};
 
     /* highlight color */
     background-color: ${props =>
-        props.isHighlighted && globalCSSVariables.highlight};
+        props.isHighlighted &&
+        style.getPropertyValue("--highlight-color")};
 
     /* text deco */
     text-decoration: ${props =>
@@ -40,15 +44,16 @@ export const Paragraph = styled.p<TextCSSProps>`
 
     /* font */
     font-style: ${props => props.isItalic && "italic"};
-    font-weight: ${props => props.isBold && globalCSSVariables.boldFw};
+    font-weight: ${props =>
+        props.isBold && style.getPropertyValue("--bold-fw")};
 `;
 
 export const KeyboardText = styled.kbd`
     width: fit-content;
-    font-size: ${globalCSSVariables.bodyFs};
-    font-weight: ${globalCSSVariables.lightFw};
-    font-family: ${globalCSSVariables.codeFf};
-    color: ${globalCSSVariables.black};
+    font-size: var(--body-fs);
+    font-weight: var(--light-fw);
+    font-family: var(--code-ff);
+    color: var(--black);
     border-radius: 3px;
     border: 1px solid black;
     padding: 1px 2px 0;
@@ -56,18 +61,18 @@ export const KeyboardText = styled.kbd`
 
 export const CodeText = styled.code`
     width: fit-content;
-    font-size: ${globalCSSVariables.bodyFs};
-    font-weight: ${globalCSSVariables.lightFw};
-    font-family: ${globalCSSVariables.codeFf};
-    color: ${globalCSSVariables.black};
-    background-color: ${globalCSSVariables.lightGrey};
+    font-size: var(--body-fs);
+    font-weight: var(--light-fw);
+    font-family: var(--code-ff);
+    color: var(--black);
+    background-color: var(--light-grey);
     border-radius: 3px;
     padding: 0 3px;
 `;
 
 export const Link = styled.a<TextCSSProps>`
-    color: ${globalCSSVariables.secondaryColor};
-    font-family: ${globalCSSVariables.primaryFf};
+    color: var(--secondary-color);
+    font-family: var(--primary-ff);
 
     &:hover {
         cursor: pointer;
